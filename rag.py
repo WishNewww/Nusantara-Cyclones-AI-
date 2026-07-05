@@ -1,7 +1,7 @@
 """
 rag.py
 ======
-Retrieval-Augmented Generation layer for CycloneGPT.
+Retrieval-Augmented Generation layer for NusantaraCycloneWatch.
 
 Responsibilities
 ----------------
@@ -59,7 +59,7 @@ LLM_MODEL = os.getenv("GEMINI_LLM_MODEL", "gemini-2.5-flash")
 
 TOP_K = 5
 
-SYSTEM_PROMPT = """You are CycloneGPT, an assistant specialized in historical \
+SYSTEM_PROMPT = """You are NusantaraCycloneWatch, an assistant specialized in historical \
 tropical cyclone data for the Western Pacific and Southeast Indian regions \
 (1945-2025).
 
@@ -215,7 +215,7 @@ def ask_question(question: str) -> str:
         chain = _get_chain()
     except (FileNotFoundError, EnvironmentError) as exc:
         logger.error(str(exc))
-        return f"CycloneGPT backend is not ready: {exc}"
+        return f"NusantaraCycloneWatch backend is not ready: {exc}"
 
     try:
         return chain.invoke(question.strip())
