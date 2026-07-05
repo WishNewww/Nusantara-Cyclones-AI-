@@ -1,5 +1,5 @@
 # ==========================================================
-# CycloneGPT - Python Dependencies
+# NusantaraCyclone - Python Dependencies
 # AI Chatbot with Retrieval-Augmented Generation (RAG)
 # ==========================================================
 
