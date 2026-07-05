@@ -1,7 +1,7 @@
 """
 app.py
 ======
-CycloneGPT — Streamlit application layer.
+NusantaraCycloneWatch — Streamlit application layer.
 
 This module owns everything related to the user-facing experience:
 layout, chat interface, session state, sidebar configuration, and error
@@ -133,11 +133,11 @@ def render_sidebar() -> None:
 def render_header() -> None:
     """Render the page title and tagline."""
     st.markdown(
-        f'<div class="cyclonegpt-title">{config.APP_ICON} {config.APP_NAME}</div>',
+        f'<div class="nusantaracyclonewatch-title">{config.APP_ICON} {config.APP_NAME}</div>',
         unsafe_allow_html=True,
     )
     st.markdown(
-        f'<div class="cyclonegpt-tagline">{config.APP_TAGLINE}</div>',
+        f'<div class="nusantaracyclonewatch-tagline">{config.APP_TAGLINE}</div>',
         unsafe_allow_html=True,
     )
 
