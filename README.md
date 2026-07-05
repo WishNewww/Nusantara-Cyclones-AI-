@@ -1,4 +1,4 @@
-# CycloneGPT
+# Nusantara Cyclone Watch
 
 An AI chatbot specialized in historical tropical cyclone information around
 Indonesia (Southeast Indian Ocean and Western Pacific basins), built with a
@@ -8,7 +8,7 @@ layer.
 ## Project structure
 
 ```
-CycloneGPT/
+NusantaraCycloneWatch/
 ├── app.py              # Streamlit application layer (this layer)
 ├── config.py           # UI copy, defaults, and option lists
 ├── requirements.txt    # Application-layer dependencies
