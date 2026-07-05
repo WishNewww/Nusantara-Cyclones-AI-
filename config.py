@@ -1,0 +1,111 @@
+"""
+config.py
+=========
+Central configuration for the CycloneGPT Streamlit application.
+
+This module contains ONLY presentation-layer configuration (titles, copy,
+UI defaults, option lists). It does not import or depend on the backend
+(rag.py / build_vector.py) in any way, keeping the application layer
+cleanly separated from the AI/RAG layer.
+"""
+
+# --------------------------------------------------------------------------
+# General application metadata
+# --------------------------------------------------------------------------
+APP_NAME = "CycloneGPT"
+APP_ICON = "🌪️"
+PAGE_TITLE = f"{APP_ICON} {APP_NAME}"
+LAYOUT = "wide"
+
+APP_TAGLINE = "Your AI assistant for historical tropical cyclone data around Indonesia."
+
+SIDEBAR_DESCRIPTION = (
+    "CycloneGPT answers questions about historical tropical cyclones in the "
+    "Southeast Indian Ocean and Western Pacific basins, using a "
+    "Retrieval-Augmented Generation (RAG) backend built on top of "
+    "historical best-track cyclone records."
+)
+
+WELCOME_MESSAGE = (
+    "👋 **Welcome to CycloneGPT!**\n\n"
+    "Ask me anything about historical tropical cyclones that have affected "
+    "Indonesia and surrounding basins — tracks, intensity, timing, and "
+    "comparisons between storms. Try one of the example questions below, "
+    "or type your own question."
+)
+
+ABOUT_TEXT = (
+    "**CycloneGPT** is a Retrieval-Augmented Generation (RAG) chatbot "
+    "specialized in historical tropical cyclone data for the Southeast "
+    "Indian Ocean and Western Pacific basins.\n\n"
+    "- **Backend**: RAG pipeline (FAISS + embeddings + LLM)\n"
+    "- **Frontend**: Streamlit application layer\n"
+    "- **Data**: Historical best-track cyclone records\n\n"
+    "This interface only communicates with the backend through a single "
+    "public function, `ask_question()`. All retrieval, embedding, and "
+    "generation logic is owned and maintained separately."
+)
+
+# --------------------------------------------------------------------------
+# Example / suggested questions shown on the welcome screen
+# --------------------------------------------------------------------------
+EXAMPLE_QUESTIONS = [
+    "Tell me about Cyclone Seroja.",
+    "Which cyclone had the highest intensity?",
+    "Compare Cyclone Tracy and Cyclone Seroja.",
+    "What happened during 1998?",
+]
+
+# --------------------------------------------------------------------------
+# Model / generation configuration options (optional controls)
+# --------------------------------------------------------------------------
+# Maps a human-friendly model label to the environment variable name that
+# should hold its API key. Only used if the backend happens to read the
+# corresponding environment variable; the app never assumes this.
+MODEL_OPTIONS = {
+    "Gemini": "GEMINI_API_KEY",
+    "Llama": "LLAMA_API_KEY",
+}
+DEFAULT_MODEL = "Gemini"
+
+DEFAULT_TEMPERATURE = 0.3
+MIN_TEMPERATURE = 0.0
+MAX_TEMPERATURE = 1.0
+TEMPERATURE_STEP = 0.05
+
+DEFAULT_MAX_DOCS = 4
+MIN_MAX_DOCS = 1
+MAX_MAX_DOCS = 10
+
+# --------------------------------------------------------------------------
+# UX / behavior settings
+# --------------------------------------------------------------------------
+CHAT_INPUT_PLACEHOLDER = "Ask about a cyclone, e.g. 'Tell me about Cyclone Seroja'"
+ASSISTANT_AVATAR = "🌪️"
+USER_AVATAR = "🧑"
+SPINNER_TEXT = "CycloneGPT is analyzing historical records..."
+
+# --------------------------------------------------------------------------
+# Friendly, user-facing error messages
+# --------------------------------------------------------------------------
+ERROR_MESSAGES = {
+    "missing_api_key": (
+        "🔑 No API key detected. Please enter your API key in the sidebar "
+        "before starting a conversation."
+    ),
+    "empty_question": "✏️ Please type a question before sending.",
+    "backend_error": (
+        "⚠️ CycloneGPT ran into a problem while retrieving an answer. "
+        "Please try rephrasing your question or try again in a moment."
+    ),
+    "unexpected_error": (
+        "❌ An unexpected error occurred. If this keeps happening, please "
+        "contact the project maintainer."
+    ),
+    "backend_unavailable": (
+        "🚫 The CycloneGPT backend (rag.py) could not be loaded. Please "
+        "make sure the backend files are present and correctly configured."
+    ),
+}
+
+CUSTOM_CSS_PATH = "assets/style.css"
