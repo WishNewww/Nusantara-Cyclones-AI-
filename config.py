@@ -1,7 +1,7 @@
 """
 config.py
 =========
-Central configuration for the CycloneGPT Streamlit application.
+Central configuration for the Nusantara Cyclone Watch Streamlit application.
 
 This module contains ONLY presentation-layer configuration (titles, copy,
 UI defaults, option lists). It does not import or depend on the backend
@@ -12,7 +12,7 @@ cleanly separated from the AI/RAG layer.
 # --------------------------------------------------------------------------
 # General application metadata
 # --------------------------------------------------------------------------
-APP_NAME = "CycloneGPT"
+APP_NAME = "Nusantara Cyclone"
 APP_ICON = "🌪️"
 PAGE_TITLE = f"{APP_ICON} {APP_NAME}"
 LAYOUT = "wide"
@@ -20,14 +20,14 @@ LAYOUT = "wide"
 APP_TAGLINE = "Your AI assistant for historical tropical cyclone data around Indonesia."
 
 SIDEBAR_DESCRIPTION = (
-    "CycloneGPT answers questions about historical tropical cyclones in the "
+    "NusantaraCyclone answers questions about historical tropical cyclones in the "
     "Southeast Indian Ocean and Western Pacific basins, using a "
     "Retrieval-Augmented Generation (RAG) backend built on top of "
     "historical best-track cyclone records."
 )
 
 WELCOME_MESSAGE = (
-    "👋 **Welcome to CycloneGPT!**\n\n"
+    "👋 **Welcome to !**\n\n"
     "Ask me anything about historical tropical cyclones that have affected "
     "Indonesia and surrounding basins — tracks, intensity, timing, and "
     "comparisons between storms. Try one of the example questions below, "
@@ -35,7 +35,7 @@ WELCOME_MESSAGE = (
 )
 
 ABOUT_TEXT = (
-    "**CycloneGPT** is a Retrieval-Augmented Generation (RAG) chatbot "
+    "**NusantaraCyclone** is a Retrieval-Augmented Generation (RAG) chatbot "
     "specialized in historical tropical cyclone data for the Southeast "
     "Indian Ocean and Western Pacific basins.\n\n"
     "- **Backend**: RAG pipeline (FAISS + embeddings + LLM)\n"
@@ -83,7 +83,7 @@ MAX_MAX_DOCS = 10
 CHAT_INPUT_PLACEHOLDER = "Ask about a cyclone, e.g. 'Tell me about Cyclone Seroja'"
 ASSISTANT_AVATAR = "🌪️"
 USER_AVATAR = "🧑"
-SPINNER_TEXT = "CycloneGPT is analyzing historical records..."
+SPINNER_TEXT = "NusantaraCyclone is analyzing historical records..."
 
 # --------------------------------------------------------------------------
 # Friendly, user-facing error messages
@@ -95,7 +95,7 @@ ERROR_MESSAGES = {
     ),
     "empty_question": "✏️ Please type a question before sending.",
     "backend_error": (
-        "⚠️ CycloneGPT ran into a problem while retrieving an answer. "
+        "⚠️ NusantaraCyclone ran into a problem while retrieving an answer. "
         "Please try rephrasing your question or try again in a moment."
     ),
     "unexpected_error": (
@@ -103,7 +103,7 @@ ERROR_MESSAGES = {
         "contact the project maintainer."
     ),
     "backend_unavailable": (
-        "🚫 The CycloneGPT backend (rag.py) could not be loaded. Please "
+        "🚫 The NusantaraCyclone backend (rag.py) could not be loaded. Please "
         "make sure the backend files are present and correctly configured."
     ),
 }
