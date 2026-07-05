@@ -1,7 +1,7 @@
 """
 build_vector.py
 ================
-Builds the FAISS vector store for CycloneGPT.
+Builds the FAISS vector store for NusantaraCycloneWatch.
 
 Pipeline
 --------
@@ -122,7 +122,7 @@ def load_region_csv(filename: str, region: str) -> pd.DataFrame:
     if not filepath.exists():
         raise FileNotFoundError(
             f"Expected dataset '{filename}' not found in {DATA_DIR}. "
-            "Make sure both CSV files are placed under CycloneGPT/data/."
+            "Make sure both CSV files are placed under NusantaraCycloneWatch/data/."
         )
 
     # The source files are ';'-delimited, UTF-8 with a BOM, and use CRLF
