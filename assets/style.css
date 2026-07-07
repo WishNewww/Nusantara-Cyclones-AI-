@@ -55,12 +55,25 @@ body, .stMarkdown, [data-testid="stChatMessage"] {
     font-size: 2.15rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-    color: var(--nw-ink);
+    line-height: 1.4;          /* was implicit (~1.1-1.2) — too tight for the
+                                   emoji glyph's tall box, causing the clip/overlap
+                                   with the first letter you're seeing */
+    padding-top: 0.2rem;       /* extra headroom so the emoji's ascender never
+                                   gets cut by the block-container's top edge */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-color, var(--nw-ink));   /* theme-aware: follows Streamlit's
+                                                   current Light/Dark setting instead
+                                                   of a fixed dark-navy hex */
     margin-bottom: 0.1rem;
 }
 
 .nusantarawatchai-tagline {
-    color: var(--nw-muted);
+    color: var(--text-color, var(--nw-muted));
+    opacity: 0.65;             /* keeps it visibly "muted" relative to the title
+                                   in BOTH themes, instead of a fixed gray that
+                                   only reads correctly on light backgrounds */
     font-size: 1rem;
     margin-bottom: 0.9rem;
 }
@@ -91,12 +104,6 @@ body, .stMarkdown, [data-testid="stChatMessage"] {
 }
 
 /* ---------- Case-file example-question cards ---------- */
-/* The card box itself comes from st.container(border=True) — a
-   native, stable Streamlit feature, so no CSS is needed for the
-   border. The hover-lift below targets the button, which IS a
-   verified-stable selector (unlike guessing at an internal
-   container-wrapper testid, which varies across Streamlit
-   versions and can silently fail to match). */
 
 .nw-case-eyebrow {
     font-family: 'JetBrains Mono', monospace;
@@ -106,11 +113,17 @@ body, .stMarkdown, [data-testid="stChatMessage"] {
     color: var(--nw-depression);
     text-transform: uppercase;
     margin-bottom: 0.15rem;
+    /* Force visibility against whichever background Streamlit is
+       currently rendering (light OR dark), instead of relying on
+       --nw-depression's fixed teal having enough contrast in both. */
+    mix-blend-mode: difference;
+    filter: invert(1) grayscale(1) brightness(1.3) sepia(1) hue-rotate(140deg) saturate(3);
 }
 
 .nw-case-question {
     font-size: 0.92rem;
-    color: var(--nw-ink);
+    color: var(--text-color, var(--nw-ink));   /* was --nw-ink only — invisible
+                                                   in Dark Mode since it's near-black */
     line-height: 1.35;
 }
 
